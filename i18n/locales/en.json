@@ -1,0 +1,13 @@
+{
+    "hello": "hello there",
+    "nav": {
+        "services": "Services",
+        "projects": "Projects",
+        "about": "About"
+    },
+    "footer": {
+        "imprint": "Credits",
+        "privacy": "Data",
+        "contact": "Contact"
+    }
+}

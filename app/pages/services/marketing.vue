@@ -1,0 +1,54 @@
+<template>
+  <services-hero-section
+    v-if="campaigning"
+    :title="campaigning.title"
+    :subtitle="campaigning.meta.subtitle"
+    :description="campaigning.description"
+    :image="darkGreyLogo"
+    line-color-class="bg-dark-grey"
+  />
+  <services-competence-section
+    v-if="campaigning"
+    :competences="campaigning.meta.competences"
+    :bubbles-image="bubblesImage"
+    line-color-class="bg-dark-grey"
+  />
+
+  <services-reference-section
+    :references="references"
+    line-color-class="bg-dark-grey"
+  />
+</template>
+
+<script setup lang="ts">
+import darkGreyLogo from '~/assets/images/logos/logo_dark_grey.png'
+import energie1 from '~/assets/images/services/energie_1.jpg'
+import energie2 from '~/assets/images/services/energie_2.png'
+import bubblesImage from '~/assets/images/bubbles/campaigning.jpg'
+import type Service from '~/utils/service'
+
+const { locale } = useI18n()
+const { data: campaigning } = await useAsyncData(
+  'marketing',
+  async () => {
+    const doc = await queryCollection('content').path(`/${locale.value}/services/marketing`).first()
+    if (!doc || !doc.meta) return null
+    return doc as unknown as Service
+  },
+  { watch: [() => locale.value] }
+)
+
+const references = ref([
+  {
+    title: "Ernergie 360°",
+    image: energie1,
+    // TODO: Replace with real link
+    link: "https://example.com/energie360-1"
+  },
+  {
+    title: "Energie 360°", 
+    image: energie2,
+    link: "https://example.com/energie360-2"
+  }
+])
+</script>

@@ -1,0 +1,21 @@
+{
+    "hello": "moin moin",
+    "nav": {
+        "services": "Services",
+        "projects": "Projects",
+        "about": "About"
+    },
+    "footer": {
+        "imprint": "Impressum",
+        "privacy": "Datenschutz",
+        "contact": "Kontakt und Support"
+    },
+    "reference": {
+        "title": "Referenzen",
+        "more": "Zur Referenz"
+    },
+    "common": {
+        "competence": "Kompetenz",
+        "projects": "Projekte"
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex items-center justify-center">
-    hello
-  </div>
+  <nuxt-layout>
+    <nuxt-page />
+  </nuxt-layout>
 </template>

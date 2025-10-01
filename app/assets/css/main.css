@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+    --color-red: #CE1537;
+    --color-black: #2F3849;
+    --color-dark-grey: #656E7D;
+    --color-light-brown: #B68578;
+    --color-mid-grey: #9DA4B5;
+    --color-light-grey: #D5D5DD;
+    --color-light-green: #609676;
+    --color-dark-brown: #643C50;
+    --color-dark-green: #656E49;
+    --font-display: "Inter", "sans-serif";
+}
+
+@layer base {
+  html, body, #__nuxt { 
+    @apply h-full; 
+  }
+  body { 
+    @apply text-black font-display;
+  }
+}
