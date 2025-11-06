@@ -1,2 +1,7 @@
-User-Agent: *
-Disallow:
+User-agent: *
+Disallow: /projects/
+Disallow: /projects
+Disallow: /services
+Disallow: /services/change
+Disallow: /services/corporate
+Disallow: /services/marketing

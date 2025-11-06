@@ -1,6 +1,5 @@
 <template>
   <section class="relative overflow-hidden" :class="transparentBg ? '' : 'bg-red'">
-    <!-- Logo mit Roll-In Animation - nur Desktop -->
     <div
       v-if="image"
       v-motion="logoMotion"
@@ -10,33 +9,31 @@
         :src="image" 
         alt=""
         class="h-full w-auto" 
-        :class="transparentBg ? 'opacity-10' : ''"
+        :class="transparentBg ? 'opacity-20' : ''"
       />
     </div>
 
-    <!-- Content Container -->
     <div class="w-full px-6 sm:px-10 lg:px-14 py-16 sm:py-20 lg:py-24">
-      <!-- Subtitle mit Linie -->
       <line-title
         v-if="subtitle"
         :subtitle="subtitle"
         :lineColorClass="lineColorClass"
-        textColorClass="text-white"
+        :textColorClass="transparentBg ? '' : 'text-white'"
         :delay="100"
       />
 
-      <!-- Title -->
       <p 
         v-if="title"
-        class="whitespace-pre-line font-semibold tracking-tight text-white text-3xl sm:text-5xl lg:text-7xl"
+        class="whitespace-pre-line font-semibold text-3xl sm:text-5xl lg:text-7xl leading-tight"
+        :class="transparentBg ? 'text-red' : 'text-white'"
       >
         {{ title }}
       </p>
 
-      <!-- Description -->
       <p 
         v-if="description"
-        class="whitespace-pre-line mt-6 sm:mt-8 max-w-2xl leading-7 sm:leading-8 text-white text-lg sm:text-xl lg:text-2xl"
+        class="whitespace-pre-line mt-6 sm:mt-8 max-w-2xl leading-7 sm:leading-8  text-lg sm:text-xl lg:text-2xl"
+        :class="transparentBg ? 'text-black' : 'text-white'"
       >
         {{ description }}
       </p>

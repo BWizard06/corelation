@@ -1,26 +1,69 @@
 <template>
-  <div class="w-full h-full flex items-center justify-center flex-col gap-4">
-    <div>
-      <h1>{{ $t("hello") }}</h1>
-    </div>
+    <services-hero-section
+      v-if="services"
+      :title="services.title"
+      :subtitle="services.meta.subtitle"
+      :description="services.description"
+      :image="iconSimple"
+      line-color-class="bg-red"
+      transparentBg 
+    />
+    
+    <services-cards-stack 
+      v-if="services"
+      :items="services.meta.services" 
+    />
 
-    <button v-for="locale in locales" @click="setLocale(locale.code)">
-      {{ locale.name }}
-    </button>
-    <nuxt-link-locale to="/services/corporate">
-      Corporate
-    </nuxt-link-locale>
-    <nuxt-link-locale to="/services/marketing">
-      Marketing
-    </nuxt-link-locale>
-    <nuxt-link-locale to="/services/change">
-      Change
-    </nuxt-link-locale>
-  </div>
+    <services-industries-grid-big
+      v-if="services"
+      :title="services.meta.industries.title"
+      :description="services.meta.industries.description"
+      :items="services.meta.industries.items"
+    />
 </template>
 
 <script setup lang="ts">
-const { locale, locales, setLocale } = useI18n()
-console.log(locales)
+import iconSimple from '~/assets/images/logos/icon_simple.png'
+
+useSeoMeta({
+  robots: 'noindex, nofollow',
+})
+
+const { locale } = useI18n()
+
+interface IndexPage {
+  title: string
+  meta: {
+    subtitle: string
+    services: Array<{
+      title: string
+      key: string
+      description: string
+      link: string
+      items: string[]
+    }>
+    industries: {
+      title: string
+      description: string
+      items: Array<{
+        title: string
+        key: string
+        description: string
+      }>
+    }
+  }
+  description: string
+}
+
+
+const { data: services } = await useAsyncData(
+  'services',
+  async () => {
+    const doc = await queryCollection('content').path(`/${locale.value}/services/services`).first()
+    if (!doc || !doc.meta) return null
+    return doc as unknown as IndexPage
+  },
+  { watch: [() => locale.value] }
+)
 
 </script>

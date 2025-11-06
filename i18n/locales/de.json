@@ -16,6 +16,10 @@
     },
     "common": {
         "competence": "Kompetenz",
-        "projects": "Projekte"
+        "projects": "Projekte",
+        "more": "Mehr erfahren"
+    },
+    "projects": {
+        "back": "Zurück zu allen Projekten"
     }
 }

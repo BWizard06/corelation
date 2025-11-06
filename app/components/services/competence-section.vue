@@ -1,6 +1,5 @@
 <template>
   <section class="px-6 sm:px-10 lg:px-14 pt-14 lg:pt-20 pb-14 lg:pb-36 ">
-    <!-- Section Title mit subtiler Animation -->
      <line-title
       :subtitle="$t('common.competence')"
       class="mb-6"
@@ -8,12 +7,8 @@
       :delay="GLOBAL_DELAY"
     />
     <div class="max-w-6xl mx-auto">
-      
-      <!-- DESKTOP VERSION - Pills + Card (bleibt exakt gleich) -->
       <div class="hidden lg:block">
-        <!-- Competence Pills mit gestaffelter Animation -->
         <div class="flex flex-col gap-6 mb-20">
-          <!-- First Row -->
           <div class="flex justify-center gap-3">
             <button
               v-for="(competence, index) in firstRowCompetences"
@@ -31,7 +26,6 @@
             </button>
           </div>
           
-          <!-- Second Row (if needed) -->
           <div v-if="secondRowCompetences.length > 0" class="flex justify-center gap-3">
             <button
               v-for="(competence, index) in secondRowCompetences"
@@ -50,14 +44,12 @@
           </div>
         </div>
 
-        <!-- Content Card mit Fade Animation -->
         <div 
           v-motion
           :initial="cardAnimation.initial"
           :visibleOnce="cardAnimation.visibleOnce"
           class="relative rounded-2xl overflow-hidden h-[400px] flex flex-col justify-end px-8 pb-8"
         >
-          <!-- Hintergrundbild mit subtiler Parallax-Bewegung -->
           <img 
             :src="bubblesImage" 
             alt=""
@@ -65,7 +57,6 @@
             :style="{ transform: `scale(1.1) translateY(${parallaxOffset}px)` }"
           />
           
-          <!-- Beschreibungsbox mit Content-Switch Animation -->
           <Transition
             mode="out-in"
             enter-active-class="transition-all duration-300 ease-out"
@@ -75,7 +66,7 @@
             leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-2"
           >
-            <div :key="selectedIndex" class="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-8">
+            <div :key="selectedIndex" class="relative z-10 bg-white/90 backdrop-blur-lg rounded-2xl p-8">
               <p class="text-red text-2xl font-semibold mb-4">
                 {{ selectedCompetence?.title }}
               </p>
@@ -87,7 +78,6 @@
         </div>
       </div>
 
-      <!-- MOBILE VERSION - Accordion -->
       <div class="lg:hidden space-y-3">
         <div
           v-for="(competence, index) in props.competences"
@@ -98,7 +88,6 @@
           class="bg-white rounded-xl border transition-all duration-300 overflow-hidden"
           :class="isAccordionOpen(index) ? 'border-red shadow-md' : 'border-light-grey'"
         >
-          <!-- Accordion Header -->
           <button
             @click="toggleAccordion(index)"
             class="w-full flex items-center justify-between p-4 text-left"
@@ -109,7 +98,7 @@
             >
               {{ competence.title }}
             </span>
-            <PhosphorIcon
+            <phosphor-icon
               name="caret-down"
               class="w-5 h-5 transition-all duration-300"
               :class="[
@@ -118,7 +107,6 @@
             />
           </button>
 
-          <!-- Accordion Content -->
           <Transition
             enter-active-class="transition-all duration-300 ease-out"
             enter-from-class="max-h-0 opacity-0"
@@ -155,24 +143,18 @@ const props = defineProps<{
   lineColorClass?: string
 }>()
 
-// Desktop: single selection
 const selectedIndex = ref(0)
 const parallaxOffset = ref(0)
 
-// Mobile: multi-selection accordion (Set für geöffnete Indices)
-const openAccordions = ref<Set<number>>(new Set([])) // Erstes Item standardmäßig offen
+const openAccordions = ref<Set<number>>(new Set([])) 
 
-// Global delay constant für Koordination mit Hero Section
-const GLOBAL_DELAY = 1000 // 1 Sekunde warten
+const GLOBAL_DELAY = 1000
 
-// Get currently selected competence (Desktop)
 const selectedCompetence = computed(() => 
   props.competences?.[selectedIndex.value]
 )
 
-// Handle competence click (Desktop)
 const handleCompetenceClick = (index: number) => {
-  // Kleine Parallax-Bewegung beim Wechsel (nur Desktop)
   parallaxOffset.value = -10
   setTimeout(() => {
     parallaxOffset.value = 0
@@ -181,41 +163,35 @@ const handleCompetenceClick = (index: number) => {
   selectedIndex.value = index
 }
 
-// Toggle accordion (Mobile)
 const toggleAccordion = (index: number) => {
   if (openAccordions.value.has(index)) {
     openAccordions.value.delete(index)
   } else {
     openAccordions.value.add(index)
   }
-  // Trigger reactivity
   openAccordions.value = new Set(openAccordions.value)
 }
 
-// Check if accordion is open (Mobile)
 const isAccordionOpen = (index: number) => {
   return openAccordions.value.has(index)
 }
 
-// Intelligent row split based on total count
 const firstRowCompetences = computed(() => {
   const total = props.competences?.length || 0
   
-  // Split logic based on total number of competences
   if (total <= 4) {
     return props.competences || []
   } else if (total === 5) {
-    return props.competences?.slice(0, 3) || [] // 3 on first row
+    return props.competences?.slice(0, 3) || []
   } else if (total === 6) {
-    return props.competences?.slice(0, 3) || [] // 3 on each row
+    return props.competences?.slice(0, 3) || [] 
   } else if (total === 7) {
-    return props.competences?.slice(0, 4) || [] // 4 on first, 3 on second
+    return props.competences?.slice(0, 4) || [] 
   } else if (total === 8) {
-    return props.competences?.slice(0, 5) || [] // 5 on first, 3 on second (like corporate)
+    return props.competences?.slice(0, 5) || [] 
   } else if (total === 9) {
-    return props.competences?.slice(0, 5) || [] // 5 on first, 4 on second
+    return props.competences?.slice(0, 5) || [] 
   } else {
-    // For larger numbers, try to balance
     const firstRowCount = Math.ceil(total / 2)
     return props.competences?.slice(0, firstRowCount) || []
   }
@@ -232,7 +208,6 @@ const secondRowCompetences = computed(() => {
   return props.competences?.slice(firstRowCount) || []
 })
 
-// Animation Configs als refs
 const pillAnimation = ref({
   initial: { 
     opacity: 0, 
@@ -241,7 +216,6 @@ const pillAnimation = ref({
   }
 })
 
-// Funktion für erste Reihe Pills Animation
 const getPillAnimation = (index: number) => {
   return {
     opacity: 1,
@@ -255,7 +229,6 @@ const getPillAnimation = (index: number) => {
   }
 }
 
-// Funktion für zweite Reihe Pills Animation
 const getPillAnimationSecondRow = (index: number) => {
   return {
     opacity: 1,
@@ -280,14 +253,13 @@ const cardAnimation = ref({
     y: 0,
     scale: 1,
     transition: {
-      delay: 300, // Global delay + original delay
+      delay: 300,
       duration: 700,
       ease: 'easeOut'
     }
   }
 })
 
-// Accordion Animation für Mobile
 const accordionAnimation = ref({
   initial: { 
     opacity: 0, 

@@ -22,10 +22,14 @@
 
 <script setup lang="ts">
 import blackLogo from '~/assets/images/logos/logo_black.png'
-import sprossImage from '~/assets/images/services/spross.jpg'
+import nexiImage from '~/assets/images/services/nexi.jpg'
 import microsoftImage from '~/assets/images/services/microsoft_1.jpg'
 import bubblesImage from '~/assets/images/bubbles/corporate.jpg'
 import type Service from '~/utils/service'
+
+useSeoMeta({
+  robots: 'noindex, nofollow',
+})
 
 const { locale } = useI18n()
 const { data: corporate } = await useAsyncData(
@@ -40,15 +44,14 @@ const { data: corporate } = await useAsyncData(
 
 const references = ref([
   {
-    title: "Spross Gartenbau",
-    image: sprossImage,
-    // TODO: Replace with real link
-    link: "https://example.com/energie360-1"
+    title: "Nexi",
+    image: nexiImage,
+    link: "/projects/5"
   },
   {
     title: "Microsoft", 
     image: microsoftImage,
-    link: "https://example.com/energie360-2"
+    link: "/projects/7"
   }
 ])
 </script>

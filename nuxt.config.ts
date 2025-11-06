@@ -29,38 +29,8 @@ export default defineNuxtConfig({
         file: 'de.json',
         name: 'Deutsch'
       },
-      {
-        code: 'en',
-        file: 'en.json',
-        name: 'English'
-      }
     ],
     defaultLocale: 'de',
     strategy: 'prefix_except_default',
   },
-  runtimeConfig: {
-    public: {
-      motion: {
-        directives: {
-          'roll-in': {
-            initial: {
-              x: 500,
-              rotate: -360,
-              opacity: 0
-            },
-            visibleOnce: {
-              x: 0,
-              rotate: 0,
-              opacity: 1,
-              transition: {
-                type: 'spring',
-                stiffness: 50,
-                damping: 15
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 })

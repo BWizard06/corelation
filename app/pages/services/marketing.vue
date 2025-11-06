@@ -23,9 +23,13 @@
 <script setup lang="ts">
 import darkGreyLogo from '~/assets/images/logos/logo_dark_grey.png'
 import energie1 from '~/assets/images/services/energie_1.jpg'
-import energie2 from '~/assets/images/services/energie_2.png'
+import energie2 from '~/assets/images/services/energie_2.jpg'
 import bubblesImage from '~/assets/images/bubbles/campaigning.jpg'
 import type Service from '~/utils/service'
+
+useSeoMeta({
+  robots: 'noindex, nofollow',
+})
 
 const { locale } = useI18n()
 const { data: campaigning } = await useAsyncData(
@@ -40,9 +44,8 @@ const { data: campaigning } = await useAsyncData(
 
 const references = ref([
   {
-    title: "Ernergie 360°",
+    title: "Energie 360°",
     image: energie1,
-    // TODO: Replace with real link
     link: "https://example.com/energie360-1"
   },
   {

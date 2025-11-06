@@ -1,6 +1,5 @@
 <template>
   <div class="min-h-screen flex flex-col max-w-[1512px] mx-auto overflow-visible">
-    <!-- Desktop Navigation (bleibt exakt wie vorher) -->
     <nav 
       class="hidden md:block fixed inset-x-0 z-50 transition-all duration-300 ease-in-out"
       :class="{
@@ -51,7 +50,6 @@
       </div>
     </nav>
 
-    <!-- Mobile Navigation -->
     <nav 
       v-show="!mobileMenuOpen"
       class="md:hidden fixed inset-x-0 z-50 transition-all duration-300 ease-in-out"
@@ -76,7 +74,7 @@
           class="p-2 text-dark-grey hover:text-black transition-colors"
           aria-label="Menu"
         >
-          <PhosphorIcon
+          <phosphor-icon
             name="list"
             class="w-6 h-6"
           />
@@ -84,7 +82,6 @@
       </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
     <Transition
       enter-active-class="transition-opacity duration-300"
       leave-active-class="transition-opacity duration-300"
@@ -98,7 +95,6 @@
       />
     </Transition>
 
-    <!-- Mobile Menu Panel -->
     <Transition
       enter-active-class="transition-transform duration-300"
       leave-active-class="transition-transform duration-300"
@@ -109,21 +105,19 @@
         v-if="mobileMenuOpen"
         class="fixed top-0 right-0 bottom-0 w-64 bg-black shadow-xl z-[70]"
       >
-        <!-- Close Button im Panel -->
         <div class="flex justify-end p-6">
           <button
             @click="mobileMenuOpen = false"
             class="p-2 text-white hover:text-red transition-colors"
             aria-label="Close Menu"
           >
-            <PhosphorIcon
+            <phosphor-icon
               name="x"
               class="w-8 h-8"
             />
           </button>
         </div>
 
-        <!-- Menu Items -->
         <div class="flex flex-col px-6 space-y-6">
           <NuxtLink
             to="/services"
@@ -153,21 +147,19 @@
       </div>
     </Transition>
 
-    <!-- Spacer (responsive) -->
     <div class="h-20 md:h-[88px]"></div>
 
     <main class="flex-1 w-full">
       <slot />
     </main>
 
-    <!-- Footer (responsive) -->
     <footer class="w-full bg-dark-grey text-white py-8 px-6 md:px-[200px]">
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm">&copy; {{ new Date().getFullYear() }} Corelation GmbH</p>
+        <p class="text-sm">&copy; {{ new Date().getFullYear() }} CoRelation GmbH</p>
         <div class="flex flex-col md:flex-row gap-4 md:gap-6">
           <NuxtLink to="/imprint" class="text-sm hover:underline">{{ $t('footer.imprint') }}</NuxtLink>
           <NuxtLink to="/privacy" class="text-sm hover:underline">{{ $t('footer.privacy') }}</NuxtLink>
-          <NuxtLink to="/contact" class="text-sm hover:underline">{{ $t('footer.contact') }}</NuxtLink>
+          <NuxtLink to="/about#contact" class="text-sm hover:underline">{{ $t('footer.contact') }}</NuxtLink>
         </div>
       </div>
     </footer>
@@ -192,23 +184,18 @@ watch(y, val => {
   lastScrollY.value = val
 })
 
-// Desktop visibility (wie vorher)
 const desktopVisible = computed(() => atTop.value || scrollDir.value === 'up')
 
-// Mobile visibility (gleiches Verhalten)
 const mobileVisible = computed(() => atTop.value || scrollDir.value === 'up')
 
-// Mobile Menu State
 const mobileMenuOpen = ref(false)
 
-// Navigation aktiv check
 const isActive = (base: string) => {
   const section = base.replace(/^\//, '')
   const re = new RegExp(`^/(?:[a-z]{2}(?:-[A-Za-z]{2})?/)?${section}(?:/|$)`, 'i')
   return re.test(route.path)
 }
 
-// Close mobile menu on route change
 watch(() => route.path, () => {
   mobileMenuOpen.value = false
 })

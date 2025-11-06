@@ -4,7 +4,7 @@ subtitle: Corporate Relations
 description: Wir bauen tragfähige Beziehungen zu den entscheidenden Stakeholdern und geben Unternehmen Glaubwürdigkeit und Stabilität. Sie gewinnen ein klares Profil in der Öffentlichkeit und Politik und sichern sich so Ihre eigene Handlungsfähigkeit auf lange Sicht.
 competences: 
     - title: Media Relations
-      description: Wir unterstützen Sie in der Zusammenarbeit mit Journalistinnen und Journalisten, übernehmen Ihre Medienstelle oder arbeiten redaktionell im Hintergrund. Unser Angebot passt sich flexibel Ihrem Bedarf an. Dabei basieren unsere Strategien auf fundierten Daten und tiefgehenden Insights – online wie offline, proaktiv wie reaktiv.
+      description: Wir unterstützen Sie 24/7 bei der Medienarbeit. Übernehmen Ihre Medienstelle oder arbeiten redaktionell im Hintergrund. Unser Angebot passt sich flexibel Ihrem Bedarf an – proaktiv wie reaktiv. Wir denken analytisch und langfristig, arbeiten präzise und schnell, abgestimmt auf Inhalte und Tempo der digitalen Medienlandschaft.
     - title: Litigation PR
       description: Sie können sich in prozessbegleitender Öffentlichkeitsarbeit auf uns verlassen. In enger Abstimmung mit Anwaltskanzleien führen wir Medien- und Stakeholder-Kommunikation inhaltlich und zeitlich umsichtig, um Ihre Interessen zu wahren und Reputationsschäden zu vermeiden
     - title: Public Affairs

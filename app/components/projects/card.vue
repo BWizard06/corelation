@@ -7,13 +7,11 @@
     :visibleOnce="getCardAnimation()"
     class="block group cursor-pointer"
   >
-    <!-- Quadrat + Flex-Layout: Bild füllt Resthöhe, Text hat nur seinen Inhalt -->
     <div
       class="aspect-square rounded-2xl border border-black/5 bg-white overflow-hidden
              shadow-sm transition-all duration-300 flex flex-col
              hover:translate-y-[-4px] hover:shadow-lg"
     >
-      <!-- Bildbereich -->
       <div class="relative flex-1 min-h-0 overflow-hidden">
         <img
           :src="image"
@@ -23,15 +21,13 @@
         />
       </div>
 
-      <!-- Textbereich mit Slide-Animation -->
       <div class="p-6 relative overflow-hidden">
-        <!-- Subtiler Highlight Bar bei Hover -->
         <div class="absolute top-0 left-0 h-[2px] w-0 bg-red transition-all duration-300 group-hover:w-full"></div>
         
-        <p class="text-sm text-slate-500 transition-colors duration-200 group-hover:text-slate-700">
+        <p class="text-xs md:text-sm text-slate-500 transition-colors duration-200 group-hover:text-slate-700">
           {{ company }}
         </p>
-        <p class="mt-1 text-xl md:text-2xl leading-tight font-semibold text-slate-900">
+        <p class="mt-1 text-lg md:text-2xl leading-tight font-semibold text-slate-900">
           {{ title }}
         </p>
       </div>
@@ -47,12 +43,11 @@ const NuxtLinkLocale = resolveComponent('NuxtLinkLocale') as Component
 const props = defineProps<{
   company: string
   title: string
-  image: string   // URL (kommt aus Asset-Import)
-  to?: string     // optionaler Link
+  image: string
+  to?: string
   animationDelay?: number
 }>()
 
-// Card Animation
 const cardAnimation = ref({
   initial: {
     opacity: 0,
@@ -73,6 +68,4 @@ const getCardAnimation = () => {
     }
   }
 }
-
-console.log(props.to)
 </script>
