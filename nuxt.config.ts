@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     'nuxt-phosphor-icons',
     '@vueuse/motion/nuxt'
   ],
-  css: ['~/assets/css/main.css'],
+  css: ['@/assets/css/main.css'],
   vite: {
     plugins: [
       tailwindcss(),

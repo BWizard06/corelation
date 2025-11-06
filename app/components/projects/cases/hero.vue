@@ -67,7 +67,7 @@ const props = defineProps<{
   caseId: string
 }>()
 
-const logoFiles = import.meta.glob('~/assets/images/projects/overview/refs/*', {
+const logoFiles = import.meta.glob('@/assets/images/projects/overview/refs/*', {
   eager: true,
   query: '?url',
   import: 'default'
@@ -82,7 +82,7 @@ const logoUrl = computed(() => {
   return ''
 })
 
-const overviewImages = import.meta.glob('~/assets/images/projects/overview/*', {
+const overviewImages = import.meta.glob('@/assets/images/projects/overview/*', {
   eager: true,
   query: '?url',
   import: 'default'
