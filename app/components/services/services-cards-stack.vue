@@ -138,7 +138,7 @@
 </template>
 
 <script setup lang="ts">
-import backgroundImage from '/images/bubbles/campaigning.jpg'
+import backgroundImage from '~/assets/images/bubbles/campaigning.jpg'
 
 type RawService = {
   title: string

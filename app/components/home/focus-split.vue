@@ -152,10 +152,10 @@
 </template>
 
 <script setup lang="ts">
-import strategyVideo from '/images/home/focus/strategy.mp4'
-import swissVideo from '/images/home/focus/swiss.mp4'
-import communicationVideo from '/images/home/focus/communication.mp4'
-import b2bVideo from '/images/home/focus/b2b.mp4'
+import strategyVideo from '~/assets/images/home/focus/strategy.mp4'
+import swissVideo from '~/assets/images/home/focus/swiss.mp4'
+import communicationVideo from '~/assets/images/home/focus/communication.mp4'
+import b2bVideo from '~/assets/images/home/focus/b2b.mp4'
 
 type Focus = {
   title: string

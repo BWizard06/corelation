@@ -115,12 +115,12 @@
 </template>
 
 <script setup lang="ts">
-import companyImg from '/images/services/industries/company2.jpg'
-import financeImg from '/images/services/industries/finance2.jpg'
-import habitatImg from '/images/services/industries/habitat2.jpg'
-import energyImg from '/images/services/industries/energy2.jpg'
-import digitizationImg from '/images/services/industries/digitization2.jpg'
-import mobilityImg from '/images/services/industries/mobility2.jpg'
+import companyImg from '~/assets/images/services/industries/company2.jpg'
+import financeImg from '~/assets/images/services/industries/finance2.jpg'
+import habitatImg from '~/assets/images/services/industries/habitat2.jpg'
+import energyImg from '~/assets/images/services/industries/energy2.jpg'
+import digitizationImg from '~/assets/images/services/industries/digitization2.jpg'
+import mobilityImg from '~/assets/images/services/industries/mobility2.jpg'
 
 type Industry = {
   title: string

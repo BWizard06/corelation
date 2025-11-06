@@ -1,9 +1,9 @@
 <template>
-    <section ref="logoSection" class="px-6 sm:px-10 lg:px-14 pb-16 sm:pb-20 lg:pb-24 bg-white">
-      <line-title
-        :subtitle="$t('reference.title')"
-        lineColorClass="bg-red"
-      />
+  <section ref="logoSection" class="px-6 sm:px-10 lg:px-14 pb-16 sm:pb-20 lg:pb-24 bg-white">
+    <line-title
+      :subtitle="$t('reference.title')"
+      lineColorClass="bg-red"
+    />
     <div class="mx-auto max-w-4xl">
       <ul class="grid grid-cols-1 md:grid-cols-3 gap-0">
         <li
@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-const files = import.meta.glob('/images/projects/overview/refs/*.{svg,png,jpg,jpeg}', {
+const files = import.meta.glob('~/assets/images/projects/overview/refs/*.{svg,png,jpg,jpeg}', {
   eager: true,
   query: '?url',
   import: 'default'
@@ -68,6 +68,26 @@ const logos = refsBase.map(r => ({ ...r, src: srcByKey[r.key] ?? '' }))
 
 const logoSection = ref(null)
 
+// Reaktive Prüfung ob wir mobile sind
+const isMobile = ref(false)
+
+// Nur im Client Window-Größe prüfen
+onMounted(() => {
+  isMobile.value = window.innerWidth < 768
+  
+  // Optional: Bei Resize aktualisieren
+  const handleResize = () => {
+    isMobile.value = window.innerWidth < 768
+  }
+  
+  window.addEventListener('resize', handleResize)
+  
+  // Cleanup
+  onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
+  })
+})
+
 const logoAnimation = ref({
   initial: {
     opacity: 0,
@@ -76,9 +96,7 @@ const logoAnimation = ref({
 })
 
 const getLogoAnimation = (index: number) => {
-  const isMobile = window.innerWidth < 768 
-  
-  if (isMobile) {
+  if (isMobile.value) {
     const delay = index * 100
     
     return {

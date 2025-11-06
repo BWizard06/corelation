@@ -176,10 +176,10 @@
 </template>
 
 <script setup lang="ts">
-import heroImage from '/images/about/hero.jpg'
-import katjaImg from '/images/about/katja.png'
-import catrinImg from '/images/about/catrin.png'
-import benImg from '/images/about/ben.jpg'
+import heroImage from '~/assets/images/about/hero.jpg'
+import katjaImg from '~/assets/images/about/katja.png'
+import catrinImg from '~/assets/images/about/catrin.png'
+import benImg from '~/assets/images/about/ben.jpg'
 
 interface Person {
     name: string
