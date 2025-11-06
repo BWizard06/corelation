@@ -25,7 +25,7 @@ import darkGreyLogo from '@/assets/images/logos/logo_dark_grey.png'
 import energie1 from '@/assets/images/services/energie_1.jpg'
 import energie2 from '@/assets/images/services/energie_2.jpg'
 import bubblesImage from '@/assets/images/bubbles/campaigning.jpg'
-import type Service from '~/utils/service'
+import type Service from '@/utils/service'
 
 useSeoMeta({
   robots: 'noindex, nofollow',

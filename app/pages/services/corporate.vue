@@ -25,7 +25,7 @@ import blackLogo from '@/assets/images/logos/logo_black.png'
 import nexiImage from '@/assets/images/services/nexi.jpg'
 import microsoftImage from '@/assets/images/services/microsoft_1.jpg'
 import bubblesImage from '@/assets/images/bubbles/corporate.jpg'
-import type Service from '~/utils/service'
+import type Service from '@/utils/service'
 
 useSeoMeta({
   robots: 'noindex, nofollow',
