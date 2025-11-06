@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import iconSimple from '@/assets/images/logos/icon_simple.png'
+import iconSimple from '/images/logos/icon_simple.png'
 
 useSeoMeta({
   robots: 'noindex, nofollow',

@@ -154,7 +154,7 @@
 </template>
 
 <script setup lang="ts">
-import iconSimple from '@/assets/images/logos/icon_white.png'
+import iconSimple from '/images/logos/icon_white.png'
 
 const props = defineProps<{
   title: string

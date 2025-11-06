@@ -106,7 +106,7 @@ const { data: caseData } = await useAsyncData(
 const mediaFiles = computed(() => {
   if (!caseData.value) return {}
   
-  const files = import.meta.glob('@/assets/images/projects/cases/*/*', {
+  const files = import.meta.glob('/images/projects/cases/*/*', {
     eager: true,
     query: '?url',
     import: 'default'

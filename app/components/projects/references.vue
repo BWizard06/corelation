@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-const files = import.meta.glob('@/assets/images/projects/overview/refs/*.{svg,png,jpg,jpeg}', {
+const files = import.meta.glob('/images/projects/overview/refs/*.{svg,png,jpg,jpeg}', {
   eager: true,
   query: '?url',
   import: 'default'

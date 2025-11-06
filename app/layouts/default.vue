@@ -168,8 +168,8 @@
 
 <script setup lang="ts">
 import { useWindowScroll } from '@vueuse/core'
-import logoUrl from '@/assets/images/logos/logo_positive.jpg'
-import iconUrl from '@/assets/images/logos/icon_simple.png'
+import logoUrl from '/images/logos/logo_positive.jpg'
+import iconUrl from '/images/logos/icon_simple.png'
 
 const route = useRoute()
 const { y } = useWindowScroll()

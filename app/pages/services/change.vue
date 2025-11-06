@@ -21,10 +21,10 @@
 </template>
 
 <script setup lang="ts">
-import midGreyLogo from '@/assets/images/logos/logo_mid_grey.png'
-import sprossImage from '@/assets/images/services/spross.jpg'
-import sixImage from '@/assets/images/services/six.png'
-import bubblesImage from '@/assets/images/bubbles/change.jpg'
+import midGreyLogo from '/images/logos/logo_mid_grey.png'
+import sprossImage from '/images/services/spross.jpg'
+import sixImage from '/images/services/six.png'
+import bubblesImage from '/images/bubbles/change.jpg'
 import type Service from '@/utils/service'
 
 useSeoMeta({
