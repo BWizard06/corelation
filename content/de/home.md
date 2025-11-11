@@ -11,7 +11,7 @@ aboutCta:
 
 focus: 
   title: Unser Fokus
-  subtitle: Als inhabergeführte Agentur mit internationaler Erfahrung verbinden wir Schweizer Eigenheiten mit den Anforderungen komplexer Branchen, fortlaufender Veränderungen, neuer Technologien und künstlicher Intelligenz.
+  subtitle: Wir bewegen uns an der Schnittstelle von Wirtschaft, Politik und Gesellschaft. Unsere Kunden vertrauen auf unsere Fähigkeit, komplexe Aufgaben schnell zu lösen, Absatzchancen zu nutzen und in Ausnahmesituationen glaubwürdig zu informieren. Wir sind besonders stark, wenn Kommunikation zum Schlüssel für Veränderung, Wachstum oder Vertrauen wird.
   items: 
     - title: Strategie & Veränderung
       key: strategy

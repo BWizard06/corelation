@@ -99,7 +99,7 @@
         v-motion
         :initial="progressBarAnimation.initial"
         :visibleOnce="progressBarAnimation.visibleOnce"
-        class="mt-16 mx-auto max-w-md"
+        class="mx-auto max-w-md"
       >
         <div class="relative h-2 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm">
           <div 
@@ -138,7 +138,7 @@
 </template>
 
 <script setup lang="ts">
-import backgroundImage from '~/assets/images/bubbles/campaigning.jpg'
+import backgroundImage from '~/assets/images/bubbles/marketing.jpg'
 
 type RawService = {
   title: string

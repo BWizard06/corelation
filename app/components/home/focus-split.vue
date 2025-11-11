@@ -169,7 +169,7 @@ const props = defineProps<{
   items: Focus[]
 }>()
 
-console.log(props.title)
+
 
 const videoMap: Record<string, string> = {
   strategy: strategyVideo,
