@@ -9,12 +9,10 @@
       <div class="absolute inset-0 bg-black/75" />
     </div>
 
-    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 50px 50px;" />
-
     <div class="relative mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16">
       <div
-        class="relative mx-auto"
-        style="perspective: 2000px; max-width: 1200px; min-height: 550px;"
+        class="relative mx-auto min-h-[350px] sm:min-h-[500px] lg:min-h-[450px]"
+        style="perspective: 2000px; max-width: 1200px;"
         role="group"
         aria-label="Service-Karten"
       >
@@ -99,7 +97,7 @@
         v-motion
         :initial="progressBarAnimation.initial"
         :visibleOnce="progressBarAnimation.visibleOnce"
-        class="mx-auto max-w-md"
+        class="mt-6 sm:mt-8 lg:mt-10 mx-auto max-w-md"
       >
         <div class="relative h-2 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm">
           <div 
