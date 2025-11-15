@@ -1,7 +1,12 @@
 {
     "hello": "moin moin",
     "nav": {
-        "services": "Services",
+        "services": {
+            "main": "Services",
+            "corporate": "Corporate",
+            "marketing": "Marketing", 
+            "change": "Change"
+        },
         "projects": "Projects",
         "about": "About"
     },

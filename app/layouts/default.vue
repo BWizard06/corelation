@@ -9,42 +9,87 @@
       :style="{ opacity: desktopVisible ? 1 : 0 }"
     >
       <div class="flex items-center justify-between">
-        <NuxtLink to="/" aria-label="Home">
+        <NuxtLinkLocale to="/" aria-label="Home">
           <img 
             :src="atTop ? logoUrl : iconUrl" 
             alt="Corelation" 
             class="transition-all duration-300"
             :class="atTop ? 'h-16 w-auto' : 'h-8 w-auto'"
           />
-        </NuxtLink>
+        </NuxtLinkLocale>
 
         <ul class="flex items-center">
-          <li :class="atTop ? 'ml-0' : 'ml-16'">
-            <NuxtLink
+          <li 
+            :class="atTop ? 'ml-0' : 'ml-16'"
+            class="relative"
+            @mouseenter="servicesDropdownOpen = true"
+            @mouseleave="servicesDropdownOpen = false"
+          >
+            <NuxtLinkLocale
               to="/services"
               class="transition-colors font-medium hover:text-black"
               :class="isActive('/services') ? 'text-red' : 'text-dark-grey'"
             >
-              {{ $t('nav.services') }}
-            </NuxtLink>
+              {{ $t('nav.services.main') }}
+            </NuxtLinkLocale>
+            
+            <div 
+              v-if="servicesDropdownOpen"
+              class="absolute top-full left-0 w-full h-2"
+            />
+            
+            <Transition
+              enter-active-class="transition-all duration-200"
+              leave-active-class="transition-all duration-200"
+              enter-from-class="opacity-0 translate-y-2"
+              leave-to-class="opacity-0 translate-y-2"
+            >
+              <div 
+                v-if="servicesDropdownOpen"
+                class="absolute top-full left-0 mt-2 w-max rounded-lg bg-white shadow-lg border border-light-grey/30"
+              >
+                <NuxtLinkLocale
+                  to="/services/corporate"
+                  class="block px-4 py-2 text-sm font-medium transition-colors hover:text-red hover:bg-light-grey/20 whitespace-nowrap"
+                  :class="isActive('/services/corporate') ? 'text-red' : 'text-dark-grey'"
+                >
+                  {{ $t('nav.services.corporate') }}
+                </NuxtLinkLocale>
+                <NuxtLinkLocale
+                  to="/services/marketing"
+                  class="block px-4 py-2 text-sm font-medium transition-colors hover:text-red hover:bg-light-grey/20 whitespace-nowrap"
+                  :class="isActive('/services/marketing') ? 'text-red' : 'text-dark-grey'"
+                >
+                  {{ $t('nav.services.marketing') }}
+                </NuxtLinkLocale>
+                <NuxtLinkLocale
+                  to="/services/change"
+                  class="block px-4 py-2 text-sm font-medium transition-colors hover:text-red hover:bg-light-grey/20 whitespace-nowrap"
+                  :class="isActive('/services/change') ? 'text-red' : 'text-dark-grey'"
+                >
+                  {{ $t('nav.services.change') }}
+                </NuxtLinkLocale>
+              </div>
+            </Transition>
           </li>
+
           <li :class="atTop ? 'ml-10' : 'ml-8'">
-            <NuxtLink
+            <NuxtLinkLocale
               to="/projects"
               class="transition-colors font-medium hover:text-black"
               :class="isActive('/projects') ? 'text-red' : 'text-dark-grey'"
             >
               {{ $t('nav.projects') }}
-            </NuxtLink>
+            </NuxtLinkLocale>
           </li>
           <li :class="atTop ? 'ml-10' : 'ml-8'">
-            <NuxtLink
+            <NuxtLinkLocale
               to="/about"
               class="transition-colors font-medium hover:text-black"
               :class="isActive('/about') ? 'text-red' : 'text-dark-grey'"
             >
               {{ $t('nav.about') }}
-            </NuxtLink>
+            </NuxtLinkLocale>
           </li>
         </ul>
       </div>
@@ -60,14 +105,14 @@
       :style="{ opacity: mobileVisible ? 1 : 0 }"
     >
       <div class="flex items-center justify-between">
-        <NuxtLink to="/" aria-label="Home">
+        <NuxtLinkLocale to="/" aria-label="Home">
           <img 
             :src="atTop ? logoUrl : iconUrl" 
             alt="Corelation" 
             class="transition-all duration-300"
             :class="atTop ? 'h-12 w-auto' : 'h-8 w-auto'"
           />
-        </NuxtLink>
+        </NuxtLinkLocale>
 
         <button 
           @click="mobileMenuOpen = true"
@@ -82,6 +127,7 @@
       </div>
     </nav>
 
+    <!-- Mobile Menu Overlay -->
     <Transition
       enter-active-class="transition-opacity duration-300"
       leave-active-class="transition-opacity duration-300"
@@ -95,6 +141,7 @@
       />
     </Transition>
 
+    <!-- Mobile Menu Sidebar -->
     <Transition
       enter-active-class="transition-transform duration-300"
       leave-active-class="transition-transform duration-300"
@@ -103,7 +150,7 @@
     >
       <div 
         v-if="mobileMenuOpen"
-        class="fixed top-0 right-0 bottom-0 w-64 bg-black shadow-xl z-[70]"
+        class="fixed top-0 right-0 bottom-0 w-64 bg-black shadow-xl z-[70] overflow-y-auto"
       >
         <div class="flex justify-end p-6">
           <button
@@ -119,30 +166,83 @@
         </div>
 
         <div class="flex flex-col px-6 space-y-6">
-          <NuxtLink
-            to="/services"
-            class="text-lg font-medium transition-colors"
-            :class="isActive('/services') ? 'text-red' : 'text-white hover:text-red'"
-            @click="mobileMenuOpen = false"
-          >
-            {{ $t('nav.services') }}
-          </NuxtLink>
-          <NuxtLink
+          <!-- Services with Submenu -->
+          <div>
+            <div class="w-full flex items-center justify-between">
+              <NuxtLinkLocale
+                to="/services"
+                class="flex-1 text-lg font-medium transition-colors"
+                :class="isActive('/services') ? 'text-red' : 'text-white hover:text-red'"
+                @click="mobileMenuOpen = false"
+              >
+                {{ $t('nav.services.main') }}
+              </NuxtLinkLocale>
+              <button
+                @click.stop="mobileServicesOpen = !mobileServicesOpen"
+                class="p-2 -mr-2 text-white hover:text-red transition-colors"
+                aria-label="Toggle Services Menu"
+              >
+                <phosphor-icon
+                  :name="mobileServicesOpen ? 'caret-up' : 'caret-down'"
+                  class="w-5 h-5 transition-transform"
+                />
+              </button>
+            </div>
+            
+            <Transition
+              enter-active-class="transition-all duration-200"
+              leave-active-class="transition-all duration-200"
+              enter-from-class="opacity-0 max-h-0"
+              leave-to-class="opacity-0 max-h-0"
+            >
+              <div 
+                v-if="mobileServicesOpen"
+                class="ml-4 space-y-3 overflow-hidden"
+              >
+                <NuxtLinkLocale
+                  to="/services/corporate"
+                  class="block text-base font-medium transition-colors"
+                  :class="isActive('/services/corporate') ? 'text-red' : 'text-white/80 hover:text-red'"
+                  @click="mobileMenuOpen = false"
+                >
+                  {{ $t('nav.services.corporate') }}
+                </NuxtLinkLocale>
+                <NuxtLinkLocale
+                  to="/services/marketing"
+                  class="block text-base font-medium transition-colors"
+                  :class="isActive('/services/marketing') ? 'text-red' : 'text-white/80 hover:text-red'"
+                  @click="mobileMenuOpen = false"
+                >
+                  {{ $t('nav.services.marketing') }}
+                </NuxtLinkLocale>
+                <NuxtLinkLocale
+                  to="/services/change"
+                  class="block text-base font-medium transition-colors"
+                  :class="isActive('/services/change') ? 'text-red' : 'text-white/80 hover:text-red'"
+                  @click="mobileMenuOpen = false"
+                >
+                  {{ $t('nav.services.change') }}
+                </NuxtLinkLocale>
+              </div>
+            </Transition>
+          </div>
+
+          <NuxtLinkLocale
             to="/projects"
             class="text-lg font-medium transition-colors"
             :class="isActive('/projects') ? 'text-red' : 'text-white hover:text-red'"
             @click="mobileMenuOpen = false"
           >
             {{ $t('nav.projects') }}
-          </NuxtLink>
-          <NuxtLink
+          </NuxtLinkLocale>
+          <NuxtLinkLocale
             to="/about"
             class="text-lg font-medium transition-colors"
             :class="isActive('/about') ? 'text-red' : 'text-white hover:text-red'"
             @click="mobileMenuOpen = false"
           >
             {{ $t('nav.about') }}
-          </NuxtLink>
+          </NuxtLinkLocale>
         </div>
       </div>
     </Transition>
@@ -157,9 +257,9 @@
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-sm">&copy; {{ new Date().getFullYear() }} CoRelation GmbH</p>
         <div class="flex flex-col md:flex-row gap-4 md:gap-6">
-          <NuxtLink to="/imprint" class="text-sm hover:underline">{{ $t('footer.imprint') }}</NuxtLink>
-          <NuxtLink to="/privacy" class="text-sm hover:underline">{{ $t('footer.privacy') }}</NuxtLink>
-          <NuxtLink to="/about#contact" class="text-sm hover:underline">{{ $t('footer.contact') }}</NuxtLink>
+          <NuxtLinkLocale to="/imprint" class="text-sm hover:underline">{{ $t('footer.imprint') }}</NuxtLinkLocale>
+          <NuxtLinkLocale to="/privacy" class="text-sm hover:underline">{{ $t('footer.privacy') }}</NuxtLinkLocale>
+          <NuxtLinkLocale to="/about#contact" class="text-sm hover:underline">{{ $t('footer.contact') }}</NuxtLinkLocale>
         </div>
       </div>
     </footer>
@@ -185,10 +285,11 @@ watch(y, val => {
 })
 
 const desktopVisible = computed(() => atTop.value || scrollDir.value === 'up')
-
 const mobileVisible = computed(() => atTop.value || scrollDir.value === 'up')
 
 const mobileMenuOpen = ref(false)
+const servicesDropdownOpen = ref(false)
+const mobileServicesOpen = ref(false)
 
 const isActive = (base: string) => {
   const section = base.replace(/^\//, '')
@@ -198,5 +299,6 @@ const isActive = (base: string) => {
 
 watch(() => route.path, () => {
   mobileMenuOpen.value = false
+  mobileServicesOpen.value = false
 })
 </script>
