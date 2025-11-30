@@ -18,13 +18,11 @@
     <div class="max-w-6xl mx-auto relative">
       <div class="mb-4">
         <h2 
-          :class="[
-            'text-xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-red transition-all duration-[800ms] ease-out',
-            startAnimation ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'
-          ]"
+          class="text-xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-red"
         >
           {{ subsection.title }}
         </h2>
+
       </div>
 
       <div class="space-y-3 sm:space-y-4">
