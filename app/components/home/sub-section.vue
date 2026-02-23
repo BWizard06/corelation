@@ -29,11 +29,7 @@
         <p
           v-for="(line, index) in textLines"
           :key="`line-${index}`"
-          :class="[
-            'text-lg sm:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-800 leading-relaxed transition-all duration-[1200ms] ease-out',
-            startAnimation ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-[50px]'
-          ]"
-          :style="{ transitionDelay: startAnimation ? `${index * 250 + 600}ms` : '0ms' }"
+          class="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-800 leading-relaxed"
         >
           {{ line }}
         </p>

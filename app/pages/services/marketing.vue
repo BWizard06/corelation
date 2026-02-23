@@ -46,12 +46,12 @@ const references = ref([
   {
     title: "Energie 360°",
     image: energie1,
-    link: "https://example.com/energie360-1"
+    link: "/projects/10"
   },
   {
     title: "Energie 360°", 
     image: energie2,
-    link: "https://example.com/energie360-2"
+    link: "/projects/2"
   }
 ])
 </script>
