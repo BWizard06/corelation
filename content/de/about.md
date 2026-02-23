@@ -21,5 +21,5 @@ network:
   text: Wir verstärken uns für bestimmte Aufgaben und Projekte mit Spezialisten, die in ihrem Gebiet zu den führenden Anbietern zählen und mit dem gleichen Qualitätsverständnis an Aufgaben herangehen wie wir.
 contact: 
   title: Kontakt
-  address: "CoRelation GmbH \n Dufourstrasse 49 \n 8008 Zurich \n Schweiz"
+  address: "CoRelation GmbH \n Dufourstrasse 47 \n 8008 Zurich \n Schweiz"
 ---
