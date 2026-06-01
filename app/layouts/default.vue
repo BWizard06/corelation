@@ -91,6 +91,9 @@
               {{ $t('nav.about') }}
             </NuxtLinkLocale>
           </li>
+          <li :class="atTop ? 'ml-10' : 'ml-8'">
+            <language-switcher variant="desktop" />
+          </li>
         </ul>
       </div>
     </nav>
@@ -243,6 +246,10 @@
           >
             {{ $t('nav.about') }}
           </NuxtLinkLocale>
+
+          <div class="pt-4 border-t border-white/15" @click="mobileMenuOpen = false">
+            <language-switcher variant="mobile" />
+          </div>
         </div>
       </div>
     </Transition>

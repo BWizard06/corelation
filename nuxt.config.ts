@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   srcDir: 'app',
+  ignore: ['**/.claude/**'],
   modules: [
     '@nuxt/image',
     '@nuxt/content',
@@ -26,8 +27,18 @@ export default defineNuxtConfig({
         file: 'de.json',
         name: 'Deutsch'
       },
+      {
+        code: 'en',
+        file: 'en.json',
+        name: 'English'
+      },
     ],
     defaultLocale: 'de',
     strategy: 'prefix_except_default',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
   },
 })

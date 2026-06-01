@@ -18,8 +18,8 @@
         {{ title }}
       </h3>
       
-      <a 
-        :href="link" 
+      <NuxtLinkLocale
+        :to="link"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 text-red hover:text-red/80 transition-colors font-medium group/link"
@@ -31,7 +31,7 @@
           name="arrow-square-out"
           class="w-5 h-5 transition-transform duration-200 group-hover/link:rotate-12"
         />
-      </a>
+      </NuxtLinkLocale>
     </div>
   </div>
 </template>

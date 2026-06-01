@@ -1,0 +1,30 @@
+{
+    "hello": "hello there",
+    "nav": {
+        "services": {
+            "main": "Services",
+            "corporate": "Corporate",
+            "marketing": "Marketing",
+            "change": "Change"
+        },
+        "projects": "Projects",
+        "about": "About"
+    },
+    "footer": {
+        "imprint": "Imprint",
+        "privacy": "Privacy",
+        "contact": "Contact & Support"
+    },
+    "reference": {
+        "title": "References",
+        "more": "View reference"
+    },
+    "common": {
+        "competence": "Expertise",
+        "projects": "Projects",
+        "more": "Learn more"
+    },
+    "projects": {
+        "back": "Back to all projects"
+    }
+}

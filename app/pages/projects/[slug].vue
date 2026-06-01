@@ -100,7 +100,8 @@ const { data: caseData } = await useAsyncData(
       .path(`/${locale.value}/projects/cases/${route.params.slug}`) 
       .first()
     return (doc ?? null) as unknown as CaseData | null
-  }
+  },
+  { watch: [() => locale.value] }
 )
 
 const mediaFiles = computed(() => {
