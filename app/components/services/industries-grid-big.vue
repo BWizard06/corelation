@@ -40,7 +40,7 @@
             transition: { delay: 300 + (index * 80), duration: 600, ease: 'easeOut' }
           }"
         >
-          <div class="group relative h-[400px] sm:h-[450px] lg:h-[500px] rounded-xl overflow-hidden cursor-pointer">
+          <div class="group relative h-[400px] sm:h-[450px] lg:h-[500px] rounded-xl overflow-hidden">
             <img 
               :src="industry.image" 
               :alt="industry.title"
@@ -83,7 +83,7 @@
             transition: { delay: 600 + (index * 80), duration: 600, ease: 'easeOut' }
           }"
         >
-          <div class="group relative h-[420px] sm:h-[480px] md:h-[520px] lg:h-[300px] rounded-xl overflow-hidden cursor-pointer">
+          <div class="group relative h-[420px] sm:h-[480px] md:h-[520px] lg:h-[300px] rounded-xl overflow-hidden">
             <img 
               :src="industry.image" 
               :alt="industry.title"

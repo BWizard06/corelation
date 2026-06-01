@@ -1,7 +1,7 @@
 <template>
   <section class="relative w-full px-6 sm:px-10 lg:px-14 py-8 sm:py-10 lg:py-14 bg-white">
     <div class="max-w-5xl mx-auto">
-      <NuxtLink
+      <NuxtLinkLocale
         to="/about#katja"
         v-motion
         :initial="{ opacity: 0, y: 30, scale: 0.95 }"
@@ -47,7 +47,7 @@
             />
           </div>
         </div>
-      </NuxtLink>
+      </NuxtLinkLocale>
     </div>
   </section>
 </template>
